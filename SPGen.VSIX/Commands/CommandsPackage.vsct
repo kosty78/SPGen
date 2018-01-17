@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--  This is the file that defines the actual layout and type of the commands.
+        It is divided in different sections (e.g. command definition, command
+        placement, ...), with each defining a specific set of properties.
+        See the comment before each section for more details about how to
+        use it. -->
+
+  <!--  The VSCT compiler (the tool that translates this file into the binary
+        format that VisualStudio will consume) has the ability to run a preprocessor
+        on the vsct file; this preprocessor is (usually) the C++ preprocessor, so
+        it is possible to define includes and macros with the same syntax used
+        in C++ files. Using this ability of the compiler here, we include some files
+        defining some of the constants that we will use inside the file. -->
+
+  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+  <Extern href="stdidcmd.h" />
+
+  <!--This header contains the command ids for the menus provided by the shell. -->
+  <Extern href="vsshlids.h" />
+
+  <!--The Commands section is where commands, menus, and menu groups are defined.
+      This section uses a Guid to identify the package that provides the command defined inside it. -->
+  <Commands package="guidSyncCommandPackage">
+    <Groups>
+      <Group guid="guidSyncCommandPackageCmdSet" id="ProjectContextGroup" priority="0x0000" />
+    </Groups>
+    <Buttons>
+      <Button guid="guidSyncCommandPackageCmdSet" id="SyncCommand" priority="0x0100" type="Button">
+        <Strings>
+          <ButtonText>Sync</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSyncCommandPackageCmdSet" id="BuildCommand" priority="0x0100" type="Button">
+        <Strings>
+          <ButtonText>Build Package</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+  <CommandPlacements>
+    <CommandPlacement guid="guidSyncCommandPackageCmdSet" id="ProjectContextGroup" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSyncCommandPackageCmdSet" id="SyncCommand" priority="0x0100">
+      <Parent guid="guidSyncCommandPackageCmdSet" id="ProjectContextGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSyncCommandPackageCmdSet" id="BuildCommand" priority="0x0101">
+      <Parent guid="guidSyncCommandPackageCmdSet" id="ProjectContextGroup" />
+    </CommandPlacement>
+  </CommandPlacements>
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidSyncCommandPackage" value="{39591b23-28e1-4aef-8655-6382b42663b4}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidSyncCommandPackageCmdSet" value="{2d7f5709-90cb-4821-a842-256c7b3ff745}">
+      <IDSymbol name="ProjectContextGroup" value="0x0100" />
+      <IDSymbol name="SyncCommand" value="0x0200" />
+      <IDSymbol name="BuildCommand" value="0x0300" />
+    </GuidSymbol>
+
+  </Symbols>
+</CommandTable>

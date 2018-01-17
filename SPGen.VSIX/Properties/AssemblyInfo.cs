@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SPGen.VSIX")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Konstantin Cherkasov")]
 [assembly: AssemblyProduct("SPGen.VSIX")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Konstantin Cherkasov 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
