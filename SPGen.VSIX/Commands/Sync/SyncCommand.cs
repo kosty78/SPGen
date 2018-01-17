@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using SPGen.VSIX.Extensions;
 using SPGen.VSIX.Forms;
+using SPGen.VSIX.Settings;
 
 namespace SPGen.VSIX.Commands.Sync
 {
@@ -75,7 +76,7 @@ namespace SPGen.VSIX.Commands.Sync
         {
             DTE dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
             //TODO: add to cpec proj
-            ((OleMenuCommand) sender).Visible = true;// dte.CurrentProject().IsSpGenProject();
+            ((OleMenuCommand)sender).Visible = true;// dte.CurrentProject().IsSpGenProject();
         }
         /// <summary>
         ///     This function is the callback used to execute the command when the menu item is clicked.
@@ -86,7 +87,8 @@ namespace SPGen.VSIX.Commands.Sync
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            SyncPackage syncPackage=new SyncPackage();
+            var dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
+            SyncPackage syncPackage = new SyncPackage(new Settings.Settings(dte));
             syncPackage.ShowDialog();
         }
     }

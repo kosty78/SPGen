@@ -13,8 +13,8 @@ namespace SPGen.VSIX.Extensions
 
         public static Project CurrentProject(this DTE dte)
         {
-            Array projects = (Array)dte.ActiveSolutionProjects;
-            return projects.Length > 0 ? (Project)projects.GetValue(0) : null;
+            Array projects = (Array)dte?.ActiveSolutionProjects;
+            return projects?.Length > 0 ? (Project)projects.GetValue(0) : null;
         }
     }
 }

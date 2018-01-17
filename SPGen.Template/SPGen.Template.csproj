@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\syncFiles.json" />
     <None Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,11 +67,16 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Files\" />
     <Folder Include="Packages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="settings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPGen.FileManager\SPGen.FileManager.csproj">
+      <Project>{172E5135-85D4-41C2-A990-2C784B51DDEE}</Project>
+      <Name>SPGen.FileManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
