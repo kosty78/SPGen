@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using SPGen.VSIX.Extensions;
 
 namespace SPGen.VSIX.Commands.Build
 {
@@ -38,10 +40,14 @@ namespace SPGen.VSIX.Commands.Build
             if (ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
                 var menuCommandId = new CommandID(CommandSet, CommandId);
-                var menuItem = new MenuCommand(MenuItemCallback, menuCommandId);
+
+                OleMenuCommand menuItem = new OleMenuCommand(MenuItemCallback, menuCommandId);
+                menuItem.BeforeQueryStatus += menuItem_BeforeQueryStatus;
+
                 commandService.AddCommand(menuItem);
             }
         }
+
 
         /// <summary>
         ///     Gets the instance of the command.
@@ -62,6 +68,12 @@ namespace SPGen.VSIX.Commands.Build
             Instance = new BuildCommand(package);
         }
 
+
+        private void menuItem_BeforeQueryStatus(object sender, EventArgs e)
+        {
+            DTE dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
+            ((OleMenuCommand)sender).Visible = dte.CurrentProject().IsSpGenProject();
+        }
         /// <summary>
         ///     This function is the callback used to execute the command when the menu item is clicked.
         ///     See the constructor to see how the menu item is associated with this function using

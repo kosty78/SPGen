@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0">
+	<ItemGroup>
+		<Reference Include="System.Core"/>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="Items\web.spg" />
+	  <None Include="Items\master.spg" />
+	  <None Include="Items\core.spg" />
+	</ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
+    <Folder Include="Packages\" />
+  </ItemGroup>
+ </Project>

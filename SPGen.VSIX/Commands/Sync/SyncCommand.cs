@@ -5,6 +5,8 @@ using System.Linq.Expressions;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using SPGen.VSIX.Extensions;
+using SPGen.VSIX.Forms;
 
 namespace SPGen.VSIX.Commands.Sync
 {
@@ -40,10 +42,14 @@ namespace SPGen.VSIX.Commands.Sync
             if (ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
                 var menuCommandId = new CommandID(CommandSet, CommandId);
-                var menuItem = new MenuCommand(MenuItemCallback, menuCommandId);
+
+                OleMenuCommand menuItem = new OleMenuCommand(MenuItemCallback, menuCommandId);
+                menuItem.BeforeQueryStatus += menuItem_BeforeQueryStatus;
+
                 commandService.AddCommand(menuItem);
             }
         }
+
 
         /// <summary>
         ///     Gets the instance of the command.
@@ -64,6 +70,13 @@ namespace SPGen.VSIX.Commands.Sync
             Instance = new SyncCommand(package);
         }
 
+
+        private void menuItem_BeforeQueryStatus(object sender, EventArgs e)
+        {
+            DTE dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
+            //TODO: add to cpec proj
+            ((OleMenuCommand) sender).Visible = true;// dte.CurrentProject().IsSpGenProject();
+        }
         /// <summary>
         ///     This function is the callback used to execute the command when the menu item is clicked.
         ///     See the constructor to see how the menu item is associated with this function using
@@ -73,18 +86,8 @@ namespace SPGen.VSIX.Commands.Sync
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            var message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()",
-                GetType().FullName);
-            var title = "Sync";
-            
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            SyncPackage syncPackage=new SyncPackage();
+            syncPackage.ShowDialog();
         }
     }
 }

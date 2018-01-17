@@ -28,11 +28,15 @@
     </Groups>
     <Buttons>
       <Button guid="guidSyncCommandPackageCmdSet" id="SyncCommand" priority="0x0100" type="Button">
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>Sync</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidSyncCommandPackageCmdSet" id="BuildCommand" priority="0x0100" type="Button">
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>Build Package</ButtonText>
         </Strings>

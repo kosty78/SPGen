@@ -4,17 +4,15 @@
     <Name>SPGen.Template</Name>
     <Description>SPGen.Template</Description>
     <Icon>SPGen.Template.ico</Icon>
-    <ProjectType>CSharp</ProjectType>
+    <ProjectType>Sitecore</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>97236fa7-da45-40e0-bc9b-c1f13ba586f6</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>SPGen.Template</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+    <Project File="ProjectTemplate.spgenproj" ReplaceParameters="true">
         <Folder Name="Files" TargetFolderName="Files" />
         <Folder Name="Items" TargetFolderName="Items">
           <ProjectItem ReplaceParameters="false" TargetFileName="core.spg">core.spg</ProjectItem>
@@ -22,7 +20,7 @@
           <ProjectItem ReplaceParameters="false" TargetFileName="web.spg">web.spg</ProjectItem>
         </Folder>
         <Folder Name="Packages" TargetFolderName="Packages" />
-        <ProjectItem ReplaceParameters="true" TargetFileName="ProjectTemplate.csproj">ProjectTemplate.csproj</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ProjectTemplate.spgenproj">ProjectTemplate.spgenproj</ProjectItem>
         <ProjectItem ReplaceParameters="false" TargetFileName="SPGen.Template.ico">SPGen.Template.ico</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="SPGen.Template.vstemplate">SPGen.Template.vstemplate</ProjectItem>
     </Project>

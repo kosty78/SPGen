@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using EnvDTE;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using SPGen.VSIX.Commands.Sync;
 using SPGen.VSIX.Commands.Build;
@@ -26,6 +27,9 @@ namespace SPGen.VSIX.Commands
     ///         &gt; in .vsixmanifest file.
     ///     </para>
     /// </remarks>
+
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasMultipleProjects_string)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasSingleProject_string)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -45,10 +49,6 @@ namespace SPGen.VSIX.Commands
         /// </summary>
         protected override void Initialize()
         {
-            DTE dte = this.GetService(typeof(DTE)) as DTE; 
-            Array projects = (Array)dte.ActiveSolutionProjects;
-            Project current = (Project)projects.GetValue(0);
-
             SyncCommand.Initialize(this);
             BuildCommand.Initialize(this);
             base.Initialize();
