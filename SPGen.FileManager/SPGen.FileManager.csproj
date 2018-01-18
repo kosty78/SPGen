@@ -41,6 +41,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,15 +51,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparers\FileSystemItemComparer.cs" />
-    <Compile Include="FileManager.cs" />
-    <Compile Include="IFileManager.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Models\FileTreeNode.cs" />
+    <Compile Include="SyncManager.cs" />
+    <Compile Include="Forms\FileManagerForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FileManagerForm.Designer.cs">
+      <DependentUpon>FileManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ISyncManager.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="SPGen.FileManager.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FileManagerForm.resx">
+      <DependentUpon>FileManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\files\blanc.ico" />
+    <EmbeddedResource Include="Icons\files\css.ico" />
+    <EmbeddedResource Include="Icons\files\dll.ico" />
+    <EmbeddedResource Include="Icons\files\folder.ico" />
+    <EmbeddedResource Include="Icons\files\picture.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,6 @@
-﻿using System.Linq;
+﻿using System.Threading.Tasks;
 using System.Windows.Forms;
-using SPGen.VSIX.Forms.Converters;
-using SPGen.VSIX.Settings;
+using SPGen.FileManager.Forms;
 
 namespace SPGen.VSIX.Forms
 {
@@ -14,11 +13,20 @@ namespace SPGen.VSIX.Forms
             InitializeComponent();
         }
 
-        private void SyncPackage_Load(object sender, System.EventArgs e)
+        private async void SyncPackage_Load(object sender, System.EventArgs e)
         {
-            FileManager.FileManager manager = new FileManager.FileManager();
-            var items = manager.PopulateFiles(_settings.SyncSettings.SitecorePath, _settings.FileStructureSettings.GetFile(_settings.FileStructureSettings.FilesPath));
-            filesTreeView.Nodes.AddRange(items.ToArray().ToTreeNodes());
+            FileManagerForm fileManagerForm = new FileManagerForm(_settings.SyncSettings.SitecorePath, _settings.FileStructureSettings.FilesPath);
+            Task flm = fileManagerForm.LoadData();
+
+
+            await flm;
+            syncFilesTab.Controls.Add(fileManagerForm);
+
+        }
+
+        private void addBtn_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

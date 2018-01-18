@@ -58,7 +58,6 @@
     <Compile Include="Commands\Sync\SyncCommand.cs" />
     <Compile Include="Commands\CommandsPackage.cs" />
     <Compile Include="Extensions\ProjectExtension.cs" />
-    <Compile Include="Forms\Converters\FileConverter.cs" />
     <Compile Include="Forms\SyncPackage.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,8 +1,4 @@
-﻿
-using System.Collections.Generic;
-using Newtonsoft.Json;
-
-namespace SPGen.FileManager.Models
+﻿namespace SPGen.FileManager.Models
 {
     public class Item
     {
@@ -12,12 +8,5 @@ namespace SPGen.FileManager.Models
             Path = path;
         }
         public string Path { get; set; }
-
-        [JsonIgnore]
-        public bool Selected { get; set; }
-        [JsonIgnore]
-        public bool IsFolder { get; set; }
-        [JsonIgnore]
-        public IList<Item> Children { get; set; }
     }
 }

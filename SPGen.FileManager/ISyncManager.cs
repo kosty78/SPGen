@@ -1,6 +1,6 @@
 ﻿namespace SPGen.FileManager
 {
-    public interface IFileManager
+    public interface ISyncManager
     {
         
     }
