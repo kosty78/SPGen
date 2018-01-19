@@ -53,6 +53,11 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Models\FileTreeNode.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SyncManager.cs" />
     <Compile Include="Forms\FileManagerForm.cs">
       <SubType>UserControl</SubType>
@@ -72,6 +77,10 @@
     <EmbeddedResource Include="Forms\FileManagerForm.resx">
       <DependentUpon>FileManagerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\files\blanc.ico" />
@@ -79,6 +88,18 @@
     <EmbeddedResource Include="Icons\files\dll.ico" />
     <EmbeddedResource Include="Icons\files\folder.ico" />
     <EmbeddedResource Include="Icons\files\picture.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\buttons\del_c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\buttons\save_c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\buttons\ok_c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\buttons\save2_c.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

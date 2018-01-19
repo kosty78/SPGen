@@ -20,13 +20,9 @@ namespace SPGen.VSIX.Forms
 
 
             await flm;
+            fileManagerForm.Dock = DockStyle.Fill;
             syncFilesTab.Controls.Add(fileManagerForm);
-
-        }
-
-        private void addBtn_Click(object sender, System.EventArgs e)
-        {
-
+            
         }
     }
 }

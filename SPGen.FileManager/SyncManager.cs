@@ -41,14 +41,13 @@ namespace SPGen.FileManager
             foreach (var file in files)
             {
                 var node = new FileTreeNode(file.Remove(0, _unusedPath), false);
+                actualFiles.Add(node);
                 if (filesToSync.ContainsKey(node.Hash))
                 {
-                    node.Checked = true;
                     node.IsSelectedFile = true;
                     node.BackColor = Constants.SelectedFile;
+                    node.Parent?.Expand();
                 }
-
-                actualFiles.Add(node);
             }
             return actualFiles.Cast<TreeNode>().ToArray();
         }

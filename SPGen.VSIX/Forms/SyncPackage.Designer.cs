@@ -50,7 +50,7 @@
             this.syncItemsTab.Location = new System.Drawing.Point(4, 22);
             this.syncItemsTab.Name = "syncItemsTab";
             this.syncItemsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.syncItemsTab.Size = new System.Drawing.Size(688, 575);
+            this.syncItemsTab.Size = new System.Drawing.Size(753, 655);
             this.syncItemsTab.TabIndex = 0;
             this.syncItemsTab.Text = "Sync Items";
             this.syncItemsTab.UseVisualStyleBackColor = true;
@@ -68,8 +68,7 @@
             // 
             // SyncPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(761, 681);
             this.Controls.Add(this.syncTabControl);
             this.Name = "SyncPackage";

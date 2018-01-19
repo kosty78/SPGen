@@ -39,6 +39,7 @@ namespace SPGen.FileManager.Forms
 
         private void addFileBtn_Click(object sender, EventArgs e)
         {
+
             if (filesTreeView.SelectedNode != null)
             {
                 var node = (FileTreeNode)filesTreeView.SelectedNode;

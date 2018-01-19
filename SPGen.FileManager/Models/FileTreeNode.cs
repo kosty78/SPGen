@@ -6,7 +6,7 @@ namespace SPGen.FileManager.Models
     public class FileTreeNode : TreeNode
     {
         private const string RegExp = @"\w*(\.\w*)*?$";
-        private const string RegExpExtension = @"\..\w*$";
+        private const string RegExpExtension = @"\.(.\w*)$";
         public FileTreeNode(string path, bool isFolder)
         {
             Path = path;
@@ -29,8 +29,10 @@ namespace SPGen.FileManager.Models
                 ImageKey = Constants.Icons.Folder;
                 return;
             }
+            var reg = Regex.Match(Text, RegExpExtension, RegexOptions.IgnoreCase);
+            var ext = reg.Groups.Count < 2 ? "" : reg.Groups[1].Value;
 
-            switch (Regex.Match(Text, RegExpExtension, RegexOptions.IgnoreCase).Value)
+            switch (ext)
             {
                 case Constants.Icons.Css:
                     ImageKey = Constants.Icons.Css;
