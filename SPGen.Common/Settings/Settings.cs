@@ -1,6 +1,6 @@
 ﻿using EnvDTE;
 
-namespace SPGen.VSIX.Settings
+namespace SPGen.Common.Settings
 {
     public class Settings
     {

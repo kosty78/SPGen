@@ -57,7 +57,6 @@
     <Compile Include="Commands\Build\BuildCommand.cs" />
     <Compile Include="Commands\Sync\SyncCommand.cs" />
     <Compile Include="Commands\CommandsPackage.cs" />
-    <Compile Include="Extensions\ProjectExtension.cs" />
     <Compile Include="Forms\SyncPackage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,9 +64,6 @@
       <DependentUpon>SyncPackage.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\FileStructureSettings.cs" />
-    <Compile Include="Settings\Settings.cs" />
-    <Compile Include="Settings\SyncSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -78,9 +74,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SPGen.Common\SPGen.Common.csproj">
+      <Project>{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}</Project>
+      <Name>SPGen.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SPGen.FileManager\SPGen.FileManager.csproj">
       <Project>{172E5135-85D4-41C2-A990-2C784B51DDEE}</Project>
       <Name>SPGen.FileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPGen.ItemsManager\SPGen.ItemManager.csproj">
+      <Project>{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}</Project>
+      <Name>SPGen.ItemManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\SPGen.Template\SPGen.Template.csproj">
       <Project>{7016A5A2-BD11-4968-9EBA-613B31A6603F}</Project>

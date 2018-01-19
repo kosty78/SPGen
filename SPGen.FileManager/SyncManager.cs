@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using SPGen.FileManager.Models;
@@ -12,6 +11,7 @@ namespace SPGen.FileManager
     public class SyncManager : ISyncManager
     {
         private int _unusedPath;
+
         public TreeNode[] PopulateFiles(string folder, string syncFile, out IDictionary<int, string> filesToSync)
         {
             _unusedPath = folder.Length;
@@ -24,7 +24,7 @@ namespace SPGen.FileManager
 
         private Item[] GetSyncedItems(string syncFile)
         {
-            return JsonConvert.DeserializeObject<Item[]>(GetFile(syncFile));
+            return !File.Exists(syncFile) ? new Item[0] : JsonConvert.DeserializeObject<Item[]>(GetFile(syncFile));
         }
 
         private TreeNode[] Populate(string currentFolder, TreeNodeCollection actualFiles,
@@ -55,7 +55,7 @@ namespace SPGen.FileManager
         public void SaveToFile(IDictionary<int, string> filesToSync, string syncFile)
         {
             var files = filesToSync.OrderBy(_=>_.Value).Select(_ => new Item(_.Value)).ToArray();
-            var json = JsonConvert.SerializeObject(files);
+            var json = JsonConvert.SerializeObject(files).Replace("},", "},\n");
 
             SaveFile(json, syncFile);
         }

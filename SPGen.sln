@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPGen.Template", "SPGen.Tem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPGen.FileManager", "SPGen.FileManager\SPGen.FileManager.csproj", "{172E5135-85D4-41C2-A990-2C784B51DDEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPGen.ItemManager", "SPGen.ItemsManager\SPGen.ItemManager.csproj", "{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPGen.Common", "SPGen.Common\SPGen.Common.csproj", "{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{172E5135-85D4-41C2-A990-2C784B51DDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{172E5135-85D4-41C2-A990-2C784B51DDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{172E5135-85D4-41C2-A990-2C784B51DDEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFFCCF5-0E23-45F3-A6C1-EAD2DB9F5C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SPGen.Common.Settings;
-using SPGen.FileManager.Models;
+using SPGen.ItemManager.Models;
+using SPGen.ItemsManager;
 
-namespace SPGen.FileManager.Forms
+namespace SPGen.ItemManager.Forms
 {
-    public partial class FileManagerForm : UserControl
+    public partial class ItemManagerForm : UserControl
     {
         private readonly Settings _settings;
         private IDictionary<int, string> _filesToSync;
         private SyncManager _manager;
-
-        public FileManagerForm(Settings settings)
+        public ItemManagerForm(Settings settings)
         {
             InitializeComponent();
             _settings = settings;
@@ -25,9 +25,8 @@ namespace SPGen.FileManager.Forms
             try
             {
                 _manager = new SyncManager();
-                filesTreeView.ImageList = imageList;
-                filesTreeView.Nodes.AddRange(_manager.PopulateFiles(_settings.SyncSettings.SitecorePath,
-                    _settings.FileStructureSettings.FilesPath, out _filesToSync));
+                itemsTreeView.ImageList = imageList;
+               // itemsTreeView.Nodes.AddRange(_manager.PopulateItems(null, null,out null));
             }
             catch (Exception ex)
             {
@@ -35,11 +34,12 @@ namespace SPGen.FileManager.Forms
             }
         }
 
-        private void addFileBtn_Click(object sender, EventArgs e)
+        private void addItemBtn_Click(object sender, EventArgs e)
         {
-            if (filesTreeView.SelectedNode != null)
+
+            if (itemsTreeView.SelectedNode != null)
             {
-                var node = (FileTreeNode) filesTreeView.SelectedNode;
+                var node = (ItemTreeNode)itemsTreeView.SelectedNode;
                 if (node.IsFolder || node.IsSelectedFile) return;
 
                 node.BackColor = Constants.SelectedFile;
@@ -52,12 +52,15 @@ namespace SPGen.FileManager.Forms
                 }
             }
         }
-
-        private void removeFileBtn_Click(object sender, EventArgs e)
+        private void addChildBtn_Click(object sender, EventArgs e)
         {
-            if (filesTreeView.SelectedNode != null)
+
+        }
+        private void removeItemBtn_Click(object sender, EventArgs e)
+        {
+            if (itemsTreeView.SelectedNode != null)
             {
-                var node = (FileTreeNode) filesTreeView.SelectedNode;
+                var node = (ItemTreeNode)itemsTreeView.SelectedNode;
                 if (node.IsFolder || !node.IsSelectedFile) return;
 
                 node.BackColor = Constants.UnSelectedFile;
@@ -73,8 +76,10 @@ namespace SPGen.FileManager.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            _manager.SaveToFile(_filesToSync, _settings.FileStructureSettings.FilesPath);
+            _manager.SaveToFile(null,"");
             saveBtn.Enabled = false;
         }
+
+
     }
 }

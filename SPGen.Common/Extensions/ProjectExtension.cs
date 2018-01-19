@@ -1,7 +1,7 @@
 ﻿using System;
 using EnvDTE;
 
-namespace SPGen.VSIX.Extensions
+namespace SPGen.Common.Extensions
 {
     public static class ProjectExtention
     {

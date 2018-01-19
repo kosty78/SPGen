@@ -1,13 +1,9 @@
 ﻿using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using System.Linq.Expressions;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using SPGen.VSIX.Extensions;
+using SPGen.Common.Settings;
 using SPGen.VSIX.Forms;
-using SPGen.VSIX.Settings;
 
 namespace SPGen.VSIX.Commands.Sync
 {
@@ -88,7 +84,7 @@ namespace SPGen.VSIX.Commands.Sync
         private void MenuItemCallback(object sender, EventArgs e)
         {
             var dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
-            SyncPackage syncPackage = new SyncPackage(new Settings.Settings(dte));
+            SyncPackage syncPackage = new SyncPackage(new Settings(dte));
             syncPackage.ShowDialog();
         }
     }

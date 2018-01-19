@@ -53,12 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
-    <None Include="Items\web.spg" />
-    <None Include="Items\master.spg" />
-    <None Include="Items\core.spg" />
-    <None Include="ProjectTemplate.spgenproj">
+    <None Include="Items\master.json" />
+    <None Include="Items\core.json" />
+    <Content Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <None Include="SPGen.Template.ico" />
   </ItemGroup>
   <ItemGroup>

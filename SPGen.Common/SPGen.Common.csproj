@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{172E5135-85D4-41C2-A990-2C784B51DDEE}</ProjectGuid>
+    <ProjectGuid>{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SPGen.FileManager</RootNamespace>
-    <AssemblyName>SPGen.FileManager</AssemblyName>
+    <RootNamespace>SPGen.Common</RootNamespace>
+    <AssemblyName>SPGen.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,16 +33,17 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SPGen.FileManager.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SPGen.Common.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,61 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="Models\FileTreeNode.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SyncManager.cs" />
-    <Compile Include="Forms\FileManagerForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\FileManagerForm.Designer.cs">
-      <DependentUpon>FileManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ISyncManager.cs" />
-    <Compile Include="Models\Item.cs" />
+    <Compile Include="Extensions\ProjectExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FileStructureSettings.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Settings\SyncSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="SPGen.FileManager.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\FileManagerForm.resx">
-      <DependentUpon>FileManagerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Icons\files\blanc.ico" />
-    <EmbeddedResource Include="Icons\files\css.ico" />
-    <EmbeddedResource Include="Icons\files\dll.ico" />
-    <EmbeddedResource Include="Icons\files\folder.ico" />
-    <EmbeddedResource Include="Icons\files\picture.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buttons\del_c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buttons\save_c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buttons\ok_c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buttons\save2_c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SPGen.Common\SPGen.Common.csproj">
-      <Project>{BD8D9EF8-FF7E-47ED-8574-E0215802E9F9}</Project>
-      <Name>SPGen.Common</Name>
-    </ProjectReference>
+    <None Include="SPGen.Common.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

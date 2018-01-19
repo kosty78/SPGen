@@ -4,7 +4,7 @@ using System.Globalization;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using SPGen.VSIX.Extensions;
+using SPGen.Common.Extensions;
 
 namespace SPGen.VSIX.Commands.Build
 {
@@ -72,7 +72,8 @@ namespace SPGen.VSIX.Commands.Build
         private void menuItem_BeforeQueryStatus(object sender, EventArgs e)
         {
             DTE dte = ServiceProvider.GetService(typeof(DTE)) as DTE;
-            ((OleMenuCommand)sender).Visible = dte.CurrentProject().IsSpGenProject();
+            //TODO: add to cpec proj
+            ((OleMenuCommand)sender).Visible = true;// dte.CurrentProject().IsSpGenProject();
         }
         /// <summary>
         ///     This function is the callback used to execute the command when the menu item is clicked.

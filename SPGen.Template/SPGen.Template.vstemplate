@@ -2,25 +2,28 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>SPGen.Template</Name>
-    <Description>SPGen.Template</Description>
+    <Description>Sitecore Package Generation Template</Description>
     <Icon>SPGen.Template.ico</Icon>
-    <ProjectType>Sitecore</ProjectType>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Sitecore</ProjectSubType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SPGen.Template</DefaultName>
+    <DefaultName>SPGen</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.spgenproj" ReplaceParameters="true">
-        <Folder Name="Files" TargetFolderName="Files" />
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+        <Folder Name="Files" TargetFolderName="Files">
+          <ProjectItem ReplaceParameters="false" TargetFileName="syncFiles.json">syncFiles.json</ProjectItem>
+        </Folder>
         <Folder Name="Items" TargetFolderName="Items">
-          <ProjectItem ReplaceParameters="false" TargetFileName="core.spg">core.spg</ProjectItem>
-          <ProjectItem ReplaceParameters="false" TargetFileName="master.spg">master.spg</ProjectItem>
-          <ProjectItem ReplaceParameters="false" TargetFileName="web.spg">web.spg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="core.json">core.json</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="master.json">master.json</ProjectItem>
         </Folder>
         <Folder Name="Packages" TargetFolderName="Packages" />
-        <ProjectItem ReplaceParameters="false" TargetFileName="ProjectTemplate.spgenproj">ProjectTemplate.spgenproj</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="settings.json">settings.json</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ProjectTemplate.csproj">ProjectTemplate.csproj</ProjectItem>
         <ProjectItem ReplaceParameters="false" TargetFileName="SPGen.Template.ico">SPGen.Template.ico</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="SPGen.Template.vstemplate">SPGen.Template.vstemplate</ProjectItem>
     </Project>

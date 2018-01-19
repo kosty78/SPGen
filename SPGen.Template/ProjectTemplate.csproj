@@ -4,9 +4,10 @@
 		<Reference Include="System.Core"/>
 	</ItemGroup>
 	<ItemGroup>
-	  <None Include="Items\web.spg" />
-	  <None Include="Items\master.spg" />
-	  <None Include="Items\core.spg" />
+	  <None Include="Items\master.json" />
+	  <None Include="Items\core.json" />
+	  <None Include="Files\syncFiles.json" />
+	  <None Include="settings.json" />
 	</ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />

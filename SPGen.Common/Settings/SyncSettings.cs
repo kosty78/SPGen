@@ -1,10 +1,9 @@
 ﻿using System.IO;
-using System.Linq;
 using EnvDTE;
 using Newtonsoft.Json;
-using SPGen.VSIX.Extensions;
+using SPGen.Common.Extensions;
 
-namespace SPGen.VSIX.Settings
+namespace SPGen.Common.Settings
 {
     public class SyncSettings
     {
